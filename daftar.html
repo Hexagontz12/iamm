@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran</title>
+    <link rel="stylesheet" href="daftar.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo Monetrix">
+        </div>
+        <h1>Formulir Pendaftaran</h1>
+        <form id="daftarForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+            <div id="namaError" class="error"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+            <div id="emailError" class="error"></div>
+
+            <label for="password">Kata Sandi</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+                <span class="toggle-password" onclick="togglePassword('password')">&#128065;</span>
+            </div>
+            <div id="passwordError" class="error"></div>
+
+            <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+            <div class="password-container">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Konfirmasi kata sandi" required>
+                <span class="toggle-password" onclick="togglePassword('confirmPassword')">&#128065;</span>
+            </div>
+            <div id="confirmPasswordError" class="error"></div>
+
+            <label for="telepon">Nomor Telepon</label>
+            <input type="tel" id="telepon" name="telepon" pattern="[0-9]{10,15}" placeholder="Masukkan nomor telepon" required>
+            <div id="teleponError" class="error"></div>
+
+            <label for="tanggalLahir">Tanggal Lahir</label>
+            <input type="date" id="tanggalLahir" name="tanggalLahir" required>
+            <div id="tanggalLahirError" class="error"></div>
+
+            <label for="jenisKelamin">Jenis Kelamin</label>
+            <div>
+                <input type="radio" id="pria" name="jenisKelamin" value="Pria" required>
+                <label for="pria">Pria</label>
+                <input type="radio" id="wanita" name="jenisKelamin" value="Wanita">
+                <label for="wanita">Wanita</label>
+            </div>
+            <div id="jenisKelaminError" class="error"></div>
+
+            <label for="alamat">Alamat</label>
+            <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat Anda" required>
+            <div id="alamatError" class="error"></div>
+
+            <label for="pekerjaan">Pekerjaan</label>
+            <select id="pekerjaan" name="pekerjaan" required>
+                <option value="">-- Pilih Pekerjaan --</option>
+                <option value="Karyawan">Karyawan</option>
+                <option value="Wirausaha">Wirausaha</option>
+                <option value="Pelajar">Pelajar</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+            <div id="pekerjaanError" class="error"></div>
+
+            <label>
+                <input type="checkbox" id="syarat" name="syarat" required>
+                Saya menyetujui <a href="syarat.html">syarat dan ketentuan</a>
+            </label>
+            <div id="syaratError" class="error"></div>
+
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+
+    <script>
+        // Fungsi untuk toggle password visibility
+        function togglePassword(id) {
+            const passwordField = document.getElementById(id);
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+        }
+
+        // Menangani pengiriman formulir
+        document.getElementById('daftarForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir default
+
+            // Ambil nilai input
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validasi password
+            if (password !== confirmPassword) {
+                alert("Konfirmasi password tidak sesuai!");
+                return;
+            }
+
+            // Simpan data ke localStorage
+            const userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            // Simpan data ke localStorage
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Redirect ke halaman login setelah pendaftaran berhasil
+            alert("Pendaftaran berhasil! Silakan login.");
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

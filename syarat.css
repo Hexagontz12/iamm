@@ -1,0 +1,141 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, black, grey,black);
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, black, grey);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideInHeader 1s ease-out;
+    flex-wrap: wrap;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    animation: fadeInLogo 1s ease-out;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.header .logo span {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    animation: fadeInNav 1s ease-out 0.5s;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.nav a:hover {
+    color: black;
+    transform: scale(1.1);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+.nav a:hover::after {
+    width: 100%;
+}
+
+.syarat {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.syarat h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.syarat p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.syarat ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: black;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav a {
+        font-size: 18px;
+    }
+
+    .syarat {
+        padding: 15px;
+    }
+
+    .syarat h1 {
+        font-size: 24px;
+    }
+
+    .syarat p, .syarat ul {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,177 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;  /* Menghapus margin default pada body */
+    padding: 0; /* Menghapus padding default pada body */
+    background: linear-gradient(to left, black, grey);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Mengubah align-items menjadi flex-start untuk menempatkan konten di atas */
+    height: 100%;  /* Memastikan tinggi halaman penuh */
+ }
+ 
+ img {
+    width: 100%; /* Mengatur lebar gambar menjadi 100% dari kontainer */
+    height: auto; /* Mengatur tinggi gambar secara otomatis untuk menjaga rasio aspek */
+    max-height: 400px; /* Menetapkan tinggi maksimum untuk gambar */
+    object-fit: cover; /* Memastikan gambar terpotong dengan baik jika melebihi ukuran kontainer */
+    margin-top: 80%; 
+    display: block; /* Mengatur gambar sebagai block untuk menghindari spasi di bawah gambar */
+}
+ 
+ .container {
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.1); /* Gradasi transparan */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: none; /* Menghilangkan box-shadow besar */
+    animation: fadeIn 1.5s ease-in-out;
+    margin: 20px;
+    margin-right: 50px;
+ }
+ img{
+    width: 200px;
+    padding-left: 300px;
+    animation: slideIn 1s ease-out;
+ }
+
+ header h1 h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-out;
+ }
+ 
+ header p {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out 0.5s forwards;
+ }
+
+ header ul li {
+    margin-bottom: 10px;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+header ul li::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: black;
+}
+
+ul li:nth-child(odd) {
+animation-delay: 1.5s;
+}
+
+ul li:nth-child(even) {
+animation-delay: 2s;
+}
+
+.back-button {
+   text-align: center;
+   margin-top: 20px;
+}
+
+.back-button button {
+   padding: 12px 20px;
+   background-color: rgb(96, 96, 96);
+   color: black;
+   border: none;
+   border-radius: 5px;
+   font-size: 1.2em;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.back-button button:hover {
+   background-color: black;
+   color:white;
+}
+
+
+.footer {
+text-align: center;
+margin-top: 30px;
+color: white;
+}
+
+.footer p {
+opacity: 0;
+animation: fadeIn 1s ease-out forwards;
+animation-delay: 2.5s;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+ }
+ 
+ @keyframes slideIn {
+    0% { transform: translateX(-50%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+ }
+ 
+ @keyframes fadeInText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+ }
+
+ /* Responsive Styles */
+@media (max-width: 768px) {
+   body {
+       align-items: center; /* Pusatkan konten di layar kecil */
+   }
+
+   .container {
+       width: 90%; /* Kurangi lebar kontainer */
+       padding: 20px; /* Kurangi padding */
+       margin: 10px; /* Kurangi margin */
+   }
+
+   img {
+       width: 150px; /* Sesuaikan ukuran gambar */
+       padding-left: 0; /* Hapus padding kiri */
+       margin-top: 20%; /* Sesuaikan margin atas */
+   }
+
+   header h1, header h2 {
+       font-size: 1.8em; /* Sesuaikan ukuran font */
+   }
+
+   header p {
+       font-size: 1em; /* Sesuaikan ukuran font */
+   }
+
+   .back-button button {
+       padding: 10px 15px; /* Sesuaikan padding tombol */
+       font-size: 1em; /* Sesuaikan ukuran font tombol */
+   }
+}
+
+@media (max-width: 480px) {
+   img {
+       width: 120px; /* Sesuaikan ukuran gambar untuk layar sangat kecil */
+       margin-top: 15%; /* Sesuaikan margin atas */
+   }
+
+   header h1, header h2 {
+       font-size: 1.5em; /* Sesuaikan ukuran font */
+   }
+
+   header p {
+       font-size: 0.9em; /* Sesuaikan ukuran font */
+   }
+
+   .back-button button {
+       padding: 8px 12px; /* Sesuaikan padding tombol */
+       font-size: 0.9em; /* Sesuaikan ukuran font tombol */
+   }
+}

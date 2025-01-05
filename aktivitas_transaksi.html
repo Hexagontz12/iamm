@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivitas Transaksi - Monetrix</title>
+    <link rel="stylesheet" href="aktivitas_transaksi.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo Monetrix">
+            <span>Monetrix</span>
+        </div>
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h1>Aktivitas Transaksi</h1>
+        <div class="saldo">
+            <h2>Total Saldo: <span id="totalSaldo">0</span></h2>
+        </div>
+        <div class="transaksi">
+            <h2>Riwayat Transaksi</h2>
+            <table id="transaction-history">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Aktivitas</th>
+                        <th>Jumlah</th>
+                        <th>Jenis Transaksi</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-table">
+                    <!-- Data transaksi akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script>
+       // Ambil riwayat transaksi dari localStorage
+let transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+
+// Fungsi untuk memperbarui tabel riwayat transaksi
+function updateTransactionTable() {
+    const tableBody = document.getElementById('transaction-table');
+    tableBody.innerHTML = ''; // Hapus isi tabel sebelum menambah
+
+    transactionHistory.forEach(transaction => {
+        const row = tableBody.insertRow();
+        row.insertCell(0).textContent = transaction.date;
+        row.insertCell(1).textContent = transaction.description;
+        row.insertCell(2).textContent = 'Rp ' + transaction.amount.toLocaleString();
+        row.insertCell(3).textContent = transaction.type;
+    });
+}
+    
+        // Fungsi untuk mereset riwayat transaksi
+        function resetTransactionHistory() {
+            // Hapus data riwayat transaksi di localStorage
+            localStorage.removeItem('transactionHistory');
+            
+            // Reset array riwayat transaksi
+            transactionHistory = [];
+            
+            // Perbarui tampilan tabel
+            updateTransactionTable();
+            
+            alert("Riwayat transaksi telah direset.");
+        }
+    
+        // Panggil fungsi untuk memperbarui tabel saat halaman dimuat
+        updateTransactionTable();
+    </script>
+    
+    </body>
+    </html>
+    

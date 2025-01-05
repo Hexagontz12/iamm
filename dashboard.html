@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Monetrix</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo Monetrix">
+            <span>Monetrix</span>
+        </div>
+        <nav class="nav">
+            <a href="aktivitas_transaksi.html">Transaksi</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Selamat Datang di Monetrix</h1>
+        <p>Kelola Uang, Wujudkan Impian</p>
+        <div class="slider">
+            <img src="brosur.jpg" alt="Slide 1">
+            <img src="brosur1.png" alt="Slide 2">
+        </div>
+    </section>
+
+    <section class="options">
+        <h2>Pilih Layanan</h2>
+        <div class="option-buttons">
+            <button onclick="window.location.href='pinjaman.html'">Pinjaman</button>
+            <button onclick="window.location.href='simpanan.html'">Simpanan</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="logo.png" alt="Logo Monetrix" class="footer-logo">
+            </div>
+            <div class="footer-center">
+                <h3>Monetrix</h3>
+                <p>Aplikasi simpan pinjam yang memudahkan Anda dalam mengelola keuangan, mulai dari menyimpan uang hingga mengajukan pinjaman dengan proses yang cepat dan aman.</p>
+            </div>
+            <div class="footer-right">
+                <h3>Kontak Kami</h3>
+                <p>Telepon: (021) 123-4567</p>
+                <p>Email: support@monetrix.com</p>
+            </div>
+        </div>
+        <p>&copy; 2024 Monetrix. Semua hak dilindungi.</p>
+
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+const slides = document.querySelectorAll('.slider img');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none';
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+// Tampilkan slide pertama
+showSlide(currentSlide);
+
+// Ganti slide setiap 3 detik
+setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>

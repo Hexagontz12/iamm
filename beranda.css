@@ -1,0 +1,220 @@
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #f5f5f5;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, black, grey);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideInHeader 1s ease-out;
+    flex-wrap: wrap;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    animation: fadeInLogo 1s ease-out;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.header .logo span {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    animation: fadeInNav 1s ease-out 0.5s;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.nav a:hover {
+    color: black;
+    transform: scale(1.1);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, black, grey);
+    color: white;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero img{
+    width: 200px;
+    
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .cta-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: blue;
+    color:white;
+    border-radius: 5px;
+}
+
+.hero .cta-button:hover {
+    background-color: #00a7f5;
+    transform: scale(1.05);
+  }
+
+.steps {
+    padding: 100px;
+    background: linear-gradient(to bottom, grey, black);
+    text-align: center;
+}
+
+.steps h2 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.steps .step {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, grey, white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.steps .step:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.steps .step h3 {
+    font-size: 20px;
+    color: black;
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    position: center;
+    color:black;
+}
+
+.steps .step p {
+    font-size: 16px;
+    color: black;
+}
+
+.cta-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cta-button a:focus {
+    outline: none;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+ }
+ 
+ .login-link p {
+    font-size: 1.1em;
+ }
+ 
+ .login-link a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+ }
+ 
+ .login-link a:hover {
+    color:rgb(0, 0, 255);
+    text-decoration: underline;
+ }

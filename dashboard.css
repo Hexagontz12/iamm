@@ -1,0 +1,195 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, black, grey);
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, black, grey);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideInHeader 1s ease-out;
+    flex-wrap: wrap;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    animation: fadeInLogo 1s ease-out;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.header .logo span {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    animation: fadeInNav 1s ease-out 0.5s;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.nav a:hover {
+    color: black;
+    transform: scale(1.1);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%; /* Pastikan gambar slider menggunakan lebar penuh kontainer */
+    height: auto; /* Mempertahankan proporsi gambar */
+    display: none; /* Tetap sembunyikan gambar secara default */
+}
+
+.options {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.option-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.option-buttons button {
+    padding: 12px 25px;
+    background-color: rgb(195, 172, 0);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.option-buttons button:hover {
+    background-color:rgb(255, 166, 0);
+}
+
+footer {
+    background: linear-gradient(to top, grey,black);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-logo {
+    height: 200px; /* Atur tinggi logo sesuai kebutuhan */
+}
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap; /* Navigasi dan logo terpisah pada baris berbeda jika diperlukan */
+    }
+
+    .slider {
+        max-width: 100%; /* Pastikan slider mengambil seluruh lebar layar */
+        margin: 0; /* Hilangkan margin */
+    }
+
+    .slider img {
+        width: 100%; /* Gambar selalu menggunakan lebar penuh layar */
+        height: auto; /* Skalakan tinggi secara proporsional */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Elemen footer tumpuk secara vertikal */
+        text-align: center; /* Pastikan teks rata tengah */
+    }
+
+    .footer-logo {
+        height: 100px; /* Perkecil tinggi logo untuk perangkat kecil */
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        text-align: center; /* Pastikan semua teks di tengah untuk perangkat kecil */
+        padding: 5px;
+    }
+}

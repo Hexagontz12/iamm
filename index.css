@@ -1,0 +1,240 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, black, grey);
+    color: white
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, black, grey);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideInHeader 1s ease-out;
+    flex-wrap: wrap;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    animation: fadeInLogo 1s ease-out;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.header .logo span {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    animation: fadeInNav 1s ease-out 0.5s;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.nav a:hover {
+    color: black;
+    transform: scale(1.1);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+.nav a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    animation: fadeInHero 1.5s ease-out;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    animation: fadeInText 1.5s ease-out 0.5s;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    animation: fadeInText 1.5s ease-out 0.8s;
+}
+
+.hero .cta-button {
+    width: 20%;
+    padding: 12px;
+    background-color: rgb(173, 173, 173);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero .back-button {
+    text-align: center;
+    margin-top: 20px;
+ }
+ 
+ .back-button button {
+    padding: 12px 20px;
+    background-color: rgb(96, 96, 96);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+ }
+ 
+ .back-button button:hover {
+    background-color: black;
+    color:white;
+ }
+
+@keyframes slideInHeader {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInHero {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Media Queries untuk Responsiveness */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header .logo span {
+        font-size: 16px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .back-button button {
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 20px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .back-button button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}

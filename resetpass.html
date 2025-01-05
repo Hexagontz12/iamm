@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Kata Sandi</title>
+    <link rel="stylesheet" href="resetpass.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reset Kata Sandi</h1>
+        <form action="" method="POST">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+            <div id="emailError" class="error"></div>
+
+            <label for="newPassword">Kata Sandi Baru</label>
+            <input type="password" id="newPassword" name="newPassword" placeholder="Masukkan kata sandi baru" required>
+            <div id="newPasswordError" class="error"></div>
+
+            <label for="confirmNewPassword">Konfirmasi Kata Sandi Baru</label>
+            <input type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="Konfirmasi kata sandi baru" required>
+            <div id="confirmNewPasswordError" class="error"></div>
+
+            <button type="submit">Reset</button>
+        </form>
+    </div>
+</body>
+</html>
